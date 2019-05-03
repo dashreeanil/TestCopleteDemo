@@ -1,0 +1,6 @@
+﻿function loginTest(){
+    //wShell.run("\""+exeFile+"\"");
+  Browsers.Item(btIExplorer).Run();
+  Browsers.Item(btIExplorer).Navigate("http://122.192.9.52:8880/sso/");
+  //Browsers.Item(btIExplorer).Navigate(url);
+}

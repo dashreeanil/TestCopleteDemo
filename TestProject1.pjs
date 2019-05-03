@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="14.0" key="{3045E0E5-B3A0-4F00-8658-0C202393018D}">
+	<children>
+		<child name="Zsmart" key="{2D599EFD-685A-47E8-B6BD-626B70F5850D}" path="TestProject1\Zsmart.mds" />
+	</children>
+	<testItems key="{BDD1E265-DAD7-47C7-BC57-D3167A3DDBD6}">
+		<children>
+			<testItem key="{2D599EFD-685A-47E8-B6BD-626B70F5850D}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{86446B41-7C24-4879-962C-3030DDDCD0F3}">
+		<data Version="3" />
+	</variables>
+	<analysis key="{FD811D1F-320C-465D-9853-C84EFF2E2B4C}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+	<extender key="{1A3FC97E-9A66-4716-B166-35D10B4146E0}">
+		<CrossBrowserTesting Enable="True" />
+	</extender>
+</Root>

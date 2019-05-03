@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{42D2222C-ACA2-405F-8E67-05D5C42EB839}" version="2">
+	<data key="{508A69AA-C93A-40FF-8907-9E6104587F47}">
+		<item typeId="{87B03792-E854-4F5D-9F33-165F1F874209}" version="2" lineNo="0" kind="0" dateTime="43584.2180671296" objectName="Aliases.explorer.wndShell_TrayWnd.ReBarWindow32.MSTaskSwWClass.MSTaskListWClass" objectLeft="440" objectTop="0" objectRight="1075" objectBottom="40" clickPointX="556" clickPointY="16" imageFileName="tcvi410223937186481.png" storageFileName="" needUpdate="False" rectColor="255" />
+		<item typeId="{87B03792-E854-4F5D-9F33-165F1F874209}" version="2" lineNo="1" kind="0" dateTime="43584.2181134259" objectName="Aliases.browser.BrowserWindow" objectLeft="-8" objectTop="-8" objectRight="1368" objectBottom="736" clickPointX="1120" clickPointY="16" imageFileName="tcvi410228546120200.png" storageFileName="" needUpdate="False" rectColor="255" />
+		<item typeId="{87B03792-E854-4F5D-9F33-165F1F874209}" version="2" lineNo="2" kind="0" dateTime="43584.2181365741" objectName="Aliases.browser.BrowserWindow" objectLeft="-8" objectTop="-8" objectRight="1368" objectBottom="736" clickPointX="1119" clickPointY="17" imageFileName="tcvi410229640120203.png" storageFileName="" needUpdate="False" rectColor="255" />
+		<item typeId="{87B03792-E854-4F5D-9F33-165F1F874209}" version="2" lineNo="3" kind="0" dateTime="43584.2181481481" objectName="Aliases.browser.BrowserWindow" objectLeft="-8" objectTop="-8" objectRight="1368" objectBottom="736" clickPointX="1162" clickPointY="15" imageFileName="tcvi410231484120206.png" storageFileName="" needUpdate="False" rectColor="255" />
+	</data>
+</Root>

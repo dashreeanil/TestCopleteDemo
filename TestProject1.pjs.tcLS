@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="data">
+			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
+				<Prp name="default project" type="S" value="{2D599EFD-685A-47E8-B6BD-626B70F5850D}"/>
+			</Node>
+			<Node name="{2d599efd-685a-47e8-b6bd-626b70f5850d}">
+				<Prp name="relpath" type="S" value="TestProject1\Zsmart.mds.tcLS"/>
+			</Node>
+			<Node name="{ca173a66-1351-447a-8fa0-a76fea0904d6}">
+				<Prp name="relpath" type="S" value="PageObjectModel\PageObjectModel.mds.tcLS"/>
+			</Node>
+			<Node name="envmngrlogs">
+				<Prp name="key" type="S" value="{E7893965-589F-49BC-9062-EEAF93A9D916}"/>
+			</Node>
+			<Node name="logs">
+				<Prp name="key" type="S" value="{D7E2AF7A-B75D-4578-9841-205A2DF7F8B9}"/>
+				<Prp name="relpath" type="S" value="Log"/>
+			</Node>
+			<Node name="variables"/>
+		</Node>
+		<Prp name="signature" type="S" value="{71078212-FAEB-4856-A901-B237C89E6B5C}"/>
+	</Node>
+</Nodes>

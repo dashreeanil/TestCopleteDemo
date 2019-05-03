@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{1478418C-D916-49E9-8E78-BF4561C164F9}" version="14.0">
+	<children>
+		<child name="TYSS_Pawan_Automation" key="{A381E8F9-6E08-419D-9F65-8917E07132B8}">
+			<data signature="{4C283132-D38F-4C25-B72C-75AD0D8A3093}" version="14.0" caption="TYSS_Pawan_Automation" address="10.10.14.234" basePath="D:\SlaveProject\" userName="Automation" source="C:\Users\Automation\Documents\TestComplete 14 Projects\TestProject1" domain="" logonMode="0" password="2E1D878ED74F6D161DF0F7D81CA8751D74A9EE40A4F3539CF4339A4A0F" />
+		</child>
+		<child name="Tyss_PT_Sunil" key="{1E1C01FF-9880-440B-A528-C159AB6610BC}">
+			<data signature="{4C283132-D38F-4C25-B72C-75AD0D8A3093}" version="14.0" caption="Tyss_PT_Sunil" address="10.10.14.158" basePath="D:\SlaveProject" userName="Sunil S" source="C:\Users\Automation\Documents\TestComplete 14 Projects\TestProject1" domain="" logonMode="0" password="2E1D878CD74F35121DF797DC9CA9751C14ABEE5FE8E34159F837BA4E0C294D73" />
+		</child>
+	</children>
+</Root>

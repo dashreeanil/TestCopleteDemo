@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="Screens">
+			<child name="homePage" key="{6F36F924-DD9E-4ECB-B6FA-E794E9649B8C}" path="homePage.js" />
+		</folder>
+		<folder name="Scenarios">
+			<child name="DemoTest" key="{E65287F2-8325-4F0D-BF89-6E26FCA61E52}" path="DemoTest.js" />
+			<child name="Demo1" key="{AFF07925-1016-4A3F-B12E-B11A6606EF8D}" path="Demo1.js" />
+		</folder>
+		<child name="Unit1" key="{BA617C1D-273B-442E-ADE3-F017C64F2555}" path="Unit1.js" />
+		<child name="BasePage" key="{6DC287B6-4929-48ED-AB0B-8ED3B357C0E4}" path="BasePage.js" />
+		<child name="GlobalVariables" key="{003AA6AD-6A5A-4837-929F-A16B204DAE77}" path="GlobalVariables.js" />
+		<child name="Generic" key="{6BC72400-B6EB-4D4F-8B2B-125FCB40F717}" path="Generic.js" />
+	</children>
+</Root>

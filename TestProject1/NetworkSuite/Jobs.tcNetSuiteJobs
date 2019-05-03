@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{54BD767E-85A4-491D-A3B2-EC88685BF3C8}" version="14.0">
+	<children>
+		<child name="Job1" key="{9DA8D157-25AC-4536-9EA4-A8B2BB989683}">
+			<data signature="{E2AF080E-4F10-4DAC-8897-101FF5509E65}" version="14.0" caption="Job1" active="True">
+				<children>
+					<child name="Task1" key="{775C9E03-B762-4AEF-B767-2B8DFF496667}">
+						<data signature="{23C4D44E-8AC2-4667-BAFD-DAD89D94804E}" version="14.0" caption="Task1" active="True" actionAfterRun="0" remoteApplication="1" copyRemoteLogMode="1" projectPath="TestProject1\Zsmart.mds" tag="" host="{A381E8F9-6E08-419D-9F65-8917E07132B8}" test="Zsmart\KeywordTests\DemoTest" previousInstanceMode="0" instances="1" hostTimeout="23" />
+					</child>
+				</children>
+			</data>
+		</child>
+	</children>
+</Root>

@@ -1,0 +1,232 @@
+﻿//USEUNIT GlobalVariables
+
+
+//this function closes the "iexplore" browser.
+function closeIexploreBrowser(){
+  var app = Sys.Find('Name','Browser("iexplore")',100);
+  if(app.Exists){
+    app.Terminate();
+  }
+}
+
+////this function enters "Username" text field.
+function enter_UserName(uName) {
+  //waitForElement("Name",'AWTObject("VTextField", "Username:", *)').Keys(uName);
+  waitForChildElement(javaProcess, "Name", 'AWTObject("VTextField", "Username:", *)').Keys(uName);
+}
+
+//this function enters "Username" text field.
+function enter_Password(pwd) {
+  //waitForElement("Name",'AWTObject("VTextField", "Password:", *)').Keys(pwd);
+  waitForChildElement(javaProcess, "Name",'AWTObject("VTextField", "Password:", *)').Keys(pwd);
+}
+
+//this function enters "Connect String" text field.
+function enter_ConnectString(connectStr) {
+  //waitForElement("Name",'AWTObject("VTextField", "Connect String:", *)').Keys(connectStr);
+  waitForChildElement(javaProcess, "Name",'AWTObject("VTextField", "Connect String:", *)').Keys(connectStr);
+}
+
+//this function clicks on "Logon" button.
+function clickOn_Logon() {
+ //waitForElement('Name','AWTObject("VButton", "Logon alt L", *)').Click(); 
+ waitForChildElement(javaProcess, 'Name','AWTObject("VButton", "Logon alt L", *)').Click();
+}
+
+//this function will launch and login to the RMS application.
+function launchAndLogin() {
+  var credentials = excelMasterObj("Credentials", "RMS", "ApplicationName");
+  launch_RMS(credentials.URL);
+  javaProcess = waitForElement("JavaFullClassName","oracle.forms.ui.*");
+  enter_UserName(credentials.UserName);
+  enter_Password(credentials.Password);
+  enter_ConnectString(credentials.ConnectString);
+  clickOn_Logon();
+}
+function launchAndLogin1() {
+  var credentials = excelMasterObj("Credentials", "RMS", "ApplicationName");
+ // launch_RMS(credentials.URL);
+  //Sys.Browser("iexplore").BrowserWindow(1).SetFocus();
+  //javaProcess = waitForElement("Name","Process('java')");
+  javaProcess = waitForElement("JavaFullClassName","oracle.forms.ui.*",5);
+  enter_UserName(credentials.UserName);
+  enter_Password(credentials.Password);
+  enter_ConnectString(credentials.ConnectString);
+  clickOn_Logon();
+}
+
+//this function will launch and login to the "Appworx" application.
+function launchAndLogin_Appworx(){
+  var credentials = excelMasterObj("Credentials", "Appworx", "ApplicationName");
+    Delay(2000);
+  launch_Appworx(credentials.URL);
+  Delay(50000);
+  appwroxProcess = waitForElement("Name","Process('javaw')");
+  waitForChildElement(appwroxProcess,"AWTComponentAccessibleName","User Name").Keys(credentials.UserName);
+  waitForChildElement(appwroxProcess,["AWTComponentAccessibleName","AWTComponentIndex"],["Password","0"]).Keys(credentials.Password);
+  waitForChildElement(appwroxProcess,"AWTComponentAccessibleName","OK").Click();
+}
+/*
+ * Function to launch SIM application
+ * @pram String url : url to launch sim application
+*/
+//count = 6
+function launchSimApp(){
+  var appDetails = excelMasterObj("Credentials","SIM","ApplicationName");
+  if(!(Sys.WaitProcess("iexplore", 2).Exists)){
+    Browsers.Item(btIExplorer).Run();  
+  }
+  Browsers.Item(btIExplorer).Navigate(appDetails.URL,1000);
+  Delay(6000);
+  Sys.Browser("iexplore").BrowserWindow(0).Maximize();
+  Sys.Browser("iexplore").BrowserWindow(0).Maximize();
+  GlobalVariables.simApp = waitForElement("Name",'Process("javaw")',10);
+  verifyAppLaunch();
+}
+
+
+//Function to verify launching of SIM application.
+//count = 2
+function verifyAppLaunch(){
+  var obj = verifyChildElement(GlobalVariables.simApp,"Name",'SwingObject("RTextField", "", 0)',50);
+  //Log.Message(obj.toString());
+  if(obj.Exists){
+    Log.Checkpoint("Verify app launch","SIM application has launched successfully");
+  }
+  else{
+    Log.Error("Failed app launch","Unable to launch SIM application");
+  }
+}
+
+//function to verify element exists with child element
+//count = 4
+function verifyChildElement(parentObj, prpName, prpValue, loopCounter=120, delay=500) {
+  var element;
+  for(var i = 0; i<loopCounter ; i++) {
+    //parentObj = verifyElement("Name",'Process("javaw")',2);
+    element = parentObj.Find(prpName, prpValue, 1000, true);
+    if(element.Exists && element.Enabled /*&& element.VisibleOnScreen*/) {
+      return element;
+    }
+    Delay(delay);
+  }
+  return element;
+}
+
+
+//Function to click on Login button
+//count = 1
+function clickOnLoginBtn(){
+  waitForChildElement(GlobalVariables.simApp,"Name",'SwingObject("Login")').Click();
+}
+
+
+/*
+ * Function to enter username.
+ * @Param String userName : username to be entered in login window.
+*/  
+
+//count = 1
+ function enterUsername(userName){
+  waitForChildElement(GlobalVariables.simApp,"Name",'SwingObject("RTextField", "", 0)').setText(userName);
+}
+
+
+/*
+ * Function to enter Password.
+ * @Param String pwd : Password to be entered in login window.
+*/  
+//count = 1
+function enterPassword(pwd){
+  waitForChildElement(GlobalVariables.simApp,"Name",'SwingObject("RPasswordField", "", 0)').setText(pwd);
+}
+
+
+//Function to click on Login button of a popup
+//count = 1
+function clickOnPopupLoginBtn(){
+  waitForChildElement(GlobalVariables.simApp,"Name",'SwingObject("RButton", "Login", 0)').Click();
+}
+
+
+//Function to verify login into SIM application
+//count = 2
+function verify_SIM_Login(){
+  var obj = verifyChildElement(GlobalVariables.simApp,"Name",'SwingObject("Logout")',20);
+  if(obj.Exists){
+      Log.Checkpoint("Verify Login","Successfully logged into SIM application");
+  }
+  else{
+      Log.Error("Failed Login","Unable to login into application");
+  }
+}
+
+
+function SIM_Login(){
+var credentials = excelMasterObj("Credentials", "SIM", "ApplicationName");
+  launchSimApp(credentials.URL);
+  Delay(3000);
+  verifyAppLaunch();
+  var obj = verifyChildElement(GlobalVariables.simApp,"Name",'SwingObject("Login")',10);
+  //Log.Message(obj.toString());
+  if(obj.Exists){
+    clickOnLoginBtn();
+    enterUsername(credentials.UserName);
+    //Generics.send_Keys();
+    enterPassword(credentials.Password);
+    //Generics.send_Keys(psw);
+    //WshShell.SendKeys("{Enter}");
+    clickOnPopupLoginBtn();
+    Delay(3000);
+  }
+  else{    
+    enterUsername(credentials.UserName);
+    enterPassword(credentials.Password);
+    clickOnPopupLoginBtn();
+    Delay(3000);
+     //Generics.send_Keys();
+    //enterPassword(psw);
+    //Generics.send_Keys(psw);
+    //WshShell.SendKeys("{Enter}");
+  }
+  verify_SIM_Login();
+}
+
+
+function bringBackToScreen()
+{
+BaseScript.javaProcess = waitForElement("Name","Process('java')");
+  waitForChildElement(BaseScript.javaProcess,"Name",'AWTObject("LWMenu", "Window mnemonic W", "*")').Click();
+  Delay(2000);
+  waitForChildElement(BaseScript.javaProcess,"Name",'AWTObject("LWRadioButtonMenuItem", "1 RMS Start Menu          (rtkstrt) mnemonic 1", 0)').Click();
+  Delay(2000) ;
+}
+
+function bringBackToBaseScreen(){
+  //GlobalVariables.simApp = waitForElement("Name",'Process("javaw")');
+  for(var i=0 ; i<5; i++){
+    var cancelBtn = Sys.Find("Name",'SwingObject("Cancel")',500,true); 
+    if(cancelBtn.Exists && cancelBtn.Enabled){
+      cancelBtn.Click();
+    }
+     
+      var doneBtn = Sys.Find("Name",'SwingObject("Done")',500,true);
+      if(doneBtn.Exists && doneBtn.Enabled){
+        doneBtn.Click();
+      }
+      
+        var mainMenuBtn = Sys.Find("Name",'SwingObject("Main Menu")',500,true);
+        if(mainMenuBtn.Exists && mainMenuBtn.Enabled){
+          mainMenuBtn.Click();
+        }
+        
+        
+      var logoutBtn =  Sys.Find("Name",'SwingObject("Logout")',500,true);
+      if(logoutBtn.Exists && logoutBtn.Enabled){
+        logoutBtn.Click();
+        break;
+                 }
+            
+  }
+  }
+
